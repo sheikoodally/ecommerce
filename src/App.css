@@ -1,39 +1,58 @@
-.App {
-  text-align: center;
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, #root{
+  height: 100vh;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+body, input, select, textarea{
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+a{
+  text-decoration: none;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+header{
+  grid-area: header;
+  background-color: #203040;
+  color: #ffffff;
+  display:flex;
   align-items: center;
+  padding: 0.5rem;
+}
+
+header a{
+  color: #ffffff;
+}
+
+a:hover {
+  color: #ff8000;
+}
+
+main{
+  grid-area: main;
+}
+
+footer{
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
-}
