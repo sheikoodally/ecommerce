@@ -5,6 +5,14 @@ import dress1 from './images/dress1.jpg'
 
 function App() {
 
+
+  const [isBoxVisible, setIsBoxVisible] = useState(false);
+
+
+  const toggleBox = () => {
+    setIsBoxVisible(prevState => ({ isBoxVisible: !prevState.isBoxVisible }));
+  };
+
   const [products, setProducts] = useState(0);
 
   useEffect(() => {
@@ -17,6 +25,9 @@ function App() {
     <div className="grid-container">
       <header>
         <div className="brand">
+          <button onClick={toggleBox}>
+            &#9776;
+          </button>
           <a href="/">Ecommerce Sheik</a>
         </div>
         <div className="header-links">
@@ -24,6 +35,15 @@ function App() {
           <a href="signin">Sign-In</a>
         </div>
       </header>
+      <aside className={isBoxVisible ? 'sidebar open' : 'sidebar'}>
+        {console.log(isBoxVisible)}
+        <h3>Shopping Categories</h3>
+        <button className="sidebar-close-btn" onClick={toggleBox}>X</button>
+        <ul>
+          <li><a href="index.html">Pants</a></li>
+          <li><a href="index.html">Shirts</a></li>
+        </ul>
+      </aside>
       <main>
         <div className="content">
           <ul className="products">
