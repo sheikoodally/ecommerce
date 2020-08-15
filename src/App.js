@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import data from './data.json';
-import dress1 from './images/dress1.jpg'
+import {BrowserRouter, Route , Link} from 'react-router-dom';
+
+import Home from './Screens/Home';
+import ProductScreen from './Screens/ProductScreen';
 
 function App() {
   const openMenu = () => {
@@ -11,22 +13,22 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open");
   }
-  const [products, setProducts] = useState(0);
+  //const [products, setProducts] = useState(0);
 
-  useEffect(() => {
-    setProducts(data.products);
-  }, [])
+  //useEffect(() => {
+    //setProducts(data.products);
+  //}, [])
 
-  console.log(products)
   
   return (
+    <BrowserRouter>
       <div className="grid-container">
       <header>
         <div className="brand">
           <button onClick={openMenu}>
             &#9776;
           </button>
-          <a href="/">Ecommerce Sheik</a>
+          <Link to="/">Ecommerce Sheik</Link>
         </div>
         <div className="header-links">
           <a href="cart">Cart</a>
@@ -41,78 +43,19 @@ function App() {
           <li><a href="index.html">Shirts</a></li>
         </ul>
       </aside>
-      <main>
+      <main className="main">
         <div className="content">
-          <ul className="products">
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
 
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
-
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
-
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
-
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
-
-            <li>
-              <div className="product">
-                <img className="product-image" src={dress1} alt="image1"></img>
-                <div className="product-name"><a href="product.html">Slim Shirt</a></div>
-                <div className="product-brand">Nike</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 Stars (10 reviews)</div>
-              </div>
-            </li>
-            
-          </ul>
+          <Route exact path="/" component={Home}/>
+          <Route path="/product/:id" component={ProductScreen}/>
+          
         </div>
-
-        hey
       </main>
       <footer>
         All rights is reserved.
       </footer>
       </div>
+    </BrowserRouter>
   );
 }
 
