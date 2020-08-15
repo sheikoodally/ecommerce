@@ -4,15 +4,13 @@ import data from './data.json';
 import dress1 from './images/dress1.jpg'
 
 function App() {
+  const openMenu = () => {
+    document.querySelector(".sidebar").classList.add("open");
+  }
 
-
-  const [isBoxVisible, setIsBoxVisible] = useState(false);
-
-
-  const toggleBox = () => {
-    setIsBoxVisible(prevState => ({ isBoxVisible: !prevState.isBoxVisible }));
-  };
-
+  const closeMenu = () => {
+    document.querySelector(".sidebar").classList.remove("open");
+  }
   const [products, setProducts] = useState(0);
 
   useEffect(() => {
@@ -22,10 +20,10 @@ function App() {
   console.log(products)
   
   return (
-    <div className="grid-container">
+      <div className="grid-container">
       <header>
         <div className="brand">
-          <button onClick={toggleBox}>
+          <button onClick={openMenu}>
             &#9776;
           </button>
           <a href="/">Ecommerce Sheik</a>
@@ -35,10 +33,9 @@ function App() {
           <a href="signin">Sign-In</a>
         </div>
       </header>
-      <aside className={isBoxVisible ? 'sidebar open' : 'sidebar'}>
-        {console.log(isBoxVisible)}
+      <aside className="sidebar">
         <h3>Shopping Categories</h3>
-        <button className="sidebar-close-btn" onClick={toggleBox}>X</button>
+        <button className="sidebar-close-btn" onClick={closeMenu}>X</button>
         <ul>
           <li><a href="index.html">Pants</a></li>
           <li><a href="index.html">Shirts</a></li>
@@ -115,7 +112,7 @@ function App() {
       <footer>
         All rights is reserved.
       </footer>
-    </div>
+      </div>
   );
 }
 

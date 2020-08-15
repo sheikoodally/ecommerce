@@ -3,6 +3,10 @@ html{
   font-size: 62.5%;
 }
 
+ul li {
+  list-style-type: none;
+}
+
 body, #root{
   height: 100vh;
   margin: 0;
@@ -93,6 +97,23 @@ header a:hover {
   position: absolute;
   right: 0.5rem;
   top: 1.5rem;
+}
+
+.sidebar-close-btn:hover{
+  background-color: #ff8000;
+}
+
+.sidebar ul {
+  padding: 1rem;
+}
+
+.sidebar li {
+  border-bottom: 1px solid #000000;
+  padding: 2rem 0.1rem;
+}
+
+.sidebar h3{
+  padding-left: 0.5rem;
 }
 /*SIDE BAR ENDS HERE*/
 
