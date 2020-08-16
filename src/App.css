@@ -149,8 +149,14 @@ main{
  }
 
  .product-image{
+   min-width: 30rem;
    max-width: 34rem;
    max-height: 34rem;
+ }
+ 
+ .product-image img {
+  margin: auto;
+  padding: auto;
  }
 
  .product-name{

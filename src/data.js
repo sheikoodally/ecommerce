@@ -8,7 +8,9 @@ export default {
       availableSizes: ["X", "L", "XL", "XXL"],
       price: 29.9,
       brand : "Nike",
-      stars: 2.5
+      stars: 2.5,
+      reviews: 10,
+      quantity: 7
     },
     {
       id: "2",
@@ -18,7 +20,9 @@ export default {
       availableSizes: ["X", "M", "L"],
       price: 18.9,
       brand : "Nike",
-      stars: 3.5
+      stars: 3.5,
+      reviews: 100,
+      quantity: 65
     },
     {
       id: "3",
@@ -28,7 +32,9 @@ export default {
       availableSizes: ["X", "M", "L"],
       price: 14.9,
       brand : "Nike",
-      stars: 2.5
+      stars: 2.5,
+      reviews: 18,
+      quantity: 17
     },
     {
       id: "4",
@@ -38,7 +44,9 @@ export default {
       availableSizes: ["XL"],
       price: 25.9,
       brand : "Nike",
-      stars: 5.0
+      stars: 5.0,
+      reviews: 50,
+      quantity: 8
     },
     {
       id: "5",
@@ -48,7 +56,9 @@ export default {
       availableSizes: ["X", "L", "XL"],
       price: 10.9,
       brand : "Nike",
-      stars: 3.5
+      stars: 3.5,
+      reviews: 85,
+      quantity: 10
     },
     {
       id: "6",
@@ -58,7 +68,9 @@ export default {
       availableSizes: ["XL", "XXL"],
       price: 49.9,
       brand : "Nike",
-      stars: 4.0
+      stars: 4.0,
+      reviews: 74,
+      quantity: 20
     }
   ]
 }

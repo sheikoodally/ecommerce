@@ -39,8 +39,8 @@ function App() {
         <h3>Shopping Categories</h3>
         <button className="sidebar-close-btn" onClick={closeMenu}>X</button>
         <ul>
-          <li><a href="index.html">Pants</a></li>
-          <li><a href="index.html">Shirts</a></li>
+          <li><Link to="/">Pants</Link></li>
+          <li><Link to="/">Shirts</Link></li>
         </ul>
       </aside>
       <main className="main">
