@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sheikoodally/ecommercestatic/css/main.467b1965.chunk.css",
+    "main.js": "/sheikoodally/ecommercestatic/js/main.4e931d5b.chunk.js",
+    "main.js.map": "/sheikoodally/ecommercestatic/js/main.4e931d5b.chunk.js.map",
+    "runtime-main.js": "/sheikoodally/ecommercestatic/js/runtime-main.4aad1648.js",
+    "runtime-main.js.map": "/sheikoodally/ecommercestatic/js/runtime-main.4aad1648.js.map",
+    "static/js/2.e00e1cf3.chunk.js": "/sheikoodally/ecommercestatic/js/2.e00e1cf3.chunk.js",
+    "static/js/2.e00e1cf3.chunk.js.map": "/sheikoodally/ecommercestatic/js/2.e00e1cf3.chunk.js.map",
+    "index.html": "/sheikoodally/ecommerceindex.html",
+    "precache-manifest.75cb058d206fae0f51f5d208ffad4a02.js": "/sheikoodally/ecommerceprecache-manifest.75cb058d206fae0f51f5d208ffad4a02.js",
+    "service-worker.js": "/sheikoodally/ecommerceservice-worker.js",
+    "static/css/main.467b1965.chunk.css.map": "/sheikoodally/ecommercestatic/css/main.467b1965.chunk.css.map",
+    "static/js/2.e00e1cf3.chunk.js.LICENSE.txt": "/sheikoodally/ecommercestatic/js/2.e00e1cf3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4aad1648.js",
+    "static/js/2.e00e1cf3.chunk.js",
+    "static/css/main.467b1965.chunk.css",
+    "static/js/main.4e931d5b.chunk.js"
+  ]
+}
