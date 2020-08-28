@@ -8,11 +8,7 @@ function Home(props) {
 
     //const [products, setProducts] = useState([]);
     const productList = useSelector(state => state.productList);
-    console.log(productList)
     const {products, loading, error} = productList;
-    console.log("products: "+products);
-    console.log("loading: " + loading );
-    console.log("error: " +  error);
 
     const dispatch = useDispatch();
     useEffect(() => {

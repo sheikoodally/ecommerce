@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import data from '../data.js';
 import {Link} from 'react-router-dom';
 import './details.css';
+import { useSelector, useDispatch } from 'react-redux';
+import {detailsProduct} from '../actions/productActions';
 
 const ProductScreen = (props) => {
-    const product = data.products.find( x => x.id === props.match.params.id);
-    const qty = product.quantity;
+    //const product = data.products.find( x => x.id === props.match.params.id);
+
+    const productDetail = useSelector(state => state.productDetails);
+    const {product, loading, error} = productDetail;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        dispatch(detailsProduct(props.match.params.id));
+        
+        return () => {
+            //
+        }
+    }, [])
+
+    const qty = 10;
     let items = [];
 
     for(let i = 1; i <= qty ; i++){
@@ -13,17 +29,17 @@ const ProductScreen = (props) => {
             items.push(i);
         }
     }
-    //let sizes = '';
 
-    //if(product.availableSizes === ''){
-        //sizes = "No Size Available"
-    //}
     return (
         <div>
             <div className="back-to-home">
             <Link to='/'> Return To Home Page</Link>
             </div>
-            <div className="details">
+            {loading ? <div>Loading... </div> :
+                error? <div> {error} </div> : 
+            (
+
+                <div className="details">
                 <div className="details-image">
                     <img src={product.image} alt={product.name}/>
                 </div>
@@ -44,11 +60,11 @@ const ProductScreen = (props) => {
                         <li>
                             {product.stars} Stars ({product.reviews} Reviews)
                         </li>
-                        <li>
+                        {/*<li>
                             Available Sizes: {product.availableSizes.map(size =>{
                                return (size + " ")
                             })}
-                        </li>
+                        </li>*/}
                     </ul>
                 </div>
                 <div className="details-action">
@@ -67,20 +83,25 @@ const ProductScreen = (props) => {
                                 })}
                             </select>
                         </li>
-                        <li>
+                        {/*<li>
                             Size: 
                             <select>
                                 {product.availableSizes.map((size, index) => {
                                     return <option key={index}>{size}</option>
                                 })}
                             </select>
-                        </li>
+                            </li>*/}
                         <li>
                             <button className="cart-button">Add to Cart</button>
                         </li>
                     </ul>
                 </div>
             </div>
+            
+            )
+
+            }
+            
         </div>
     )
 }
