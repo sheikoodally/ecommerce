@@ -1,33 +1,44 @@
-import React, { useEffect } from 'react';
-import data from '../data.js';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import './details.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {detailsProduct} from '../actions/productActions';
 
 const ProductScreen = (props) => {
-    //const product = data.products.find( x => x.id === props.match.params.id);
 
     const productDetail = useSelector(state => state.productDetails);
     const {product, loading, error} = productDetail;
     const dispatch = useDispatch();
+    const [qty, setQty] = useState(1);
 
     useEffect(() => {
 
         dispatch(detailsProduct(props.match.params.id));
-        
         return () => {
             //
         }
     }, [])
 
-    const qty = 10;
-    let items = [];
-
-    for(let i = 1; i <= qty ; i++){
-        if(i <= 10){
-            items.push(i);
+    const returnFunction = (count) => {
+        if(count + 1 <= 10){
+            return <option key={count + 1} value={count+1} >{count + 1}</option>
         }
+    }
+
+
+
+    const sizes = (size) => {
+        let tempSize = [(size)];
+
+
+        tempSize.map((x) => {
+           return  ("hello")
+        })
+    }
+
+
+    const handleAddToCart = () => {
+        props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
     }
 
     return (
@@ -76,14 +87,23 @@ const ProductScreen = (props) => {
                             Status: {product.name}
                         </li>
                         <li>
+                               Size:  
+                               <select>
+                                    {sizes(product.availableSizes)}
+                                </select>
+                        </li>
+                        <li>
                             Qty: 
-                            <select>
-                                {items.map(item => {
-                                    return <option key={item}>{item}</option>
-                                })}
+                            <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                                {
+                                    [...Array(product.quantity).keys()].map(x => 
+                                        {return returnFunction(x)}
+                                    )
+                                }
                             </select>
                         </li>
-                        {/*<li>
+                        {
+                        /*<li>
                             Size: 
                             <select>
                                 {product.availableSizes.map((size, index) => {
@@ -92,7 +112,13 @@ const ProductScreen = (props) => {
                             </select>
                             </li>*/}
                         <li>
-                            <button className="cart-button">Add to Cart</button>
+                            {product.quantity >0? 
+                            
+                            <button onClick={handleAddToCart} className="cart-button">Add to Cart</button> :
+
+                            <div>Out of Stock</div>
+                            
+                            }
                         </li>
                     </ul>
                 </div>

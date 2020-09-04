@@ -5,7 +5,7 @@ export default {
       image: '/images/dress1.jpg',
       name: "Midi sundress with shirring detail",
       description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-      availableSizes: ["X", "L", "XL", "XXL"],
+      availableSizes: ["L", "X", "XL", "XXL"],
       price: 29.9,
       brand : "Nike",
       stars: 2.5,
@@ -17,7 +17,7 @@ export default {
       image: "/images/dress2.jpg",
       name: "Midi sundress with ruched front",
       description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-      availableSizes: ["X", "M", "L"],
+      availableSizes: ["M", "L", "X"],
       price: 18.9,
       brand : "Nike",
       stars: 3.5,
@@ -70,7 +70,7 @@ export default {
       brand : "Nike",
       stars: 4.0,
       reviews: 74,
-      quantity: 20
+      quantity: 0
     }
   ]
 }

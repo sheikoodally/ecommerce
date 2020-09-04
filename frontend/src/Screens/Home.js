@@ -29,7 +29,7 @@ function Home(props) {
      //   }
     //}, [])
     return (
-    loading? <div>Loading... {console.log('loading...')}</div> : error? <div>{error}</div> :
+    loading? <div>Loading... </div> : error? <div>{error}</div> :
         <div>
             <ul className="products">
 
