@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { addToCart, removeFromCart } from '../actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux';
-import './cartScreen.css'
+import './cartScreen.css';
 import { Link } from 'react-router-dom';
 
 const CartScreen = (props) => {
@@ -38,7 +38,7 @@ const CartScreen = (props) => {
         <div className="cart">
             <div className="cart-list">
                 <ul className="cart-list-container">
-                    <li>
+                    <li key="title">
                         <h3>Shopping Cart</h3>
                         <div>
                             Price
@@ -51,7 +51,7 @@ const CartScreen = (props) => {
                     </div>
                     :
                     cartItems.map(item =>
-                        <li>
+                        <li key={item.product}>
                             <div className="cart-image">
                                 <img alt="Img" src={item.image}/>
                             </div>
@@ -85,7 +85,7 @@ const CartScreen = (props) => {
                 <h3>
                     Subtotal {cartItems.reduce((a,c) => a + c.qty ,0)}
                     :
-                    $ {cartItems.reduce((a,c) => a + c.price * c.qty , 0)}
+                    $ {cartItems.reduce((a,c) => a + c.price * c.qty , 0).toFixed(2)}
                 </h3>
                 <button onClick={checkOutHandler} className="button-primary full-width" disabled={cartItems.length === 0}>
                     Proceed to Checkout
