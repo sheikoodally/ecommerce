@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {signin} from '../actions/userActions';
 import './cartScreen.css';
 
 const SignInScreen = (props) =>  {
 
-    const dispatch = useDispatch();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState(''); 
+    const userSignin = useSelector(state => state.userSignin);
+    const {loading, userInfo, error} = userSignin;
+    const dispatch = useDispatch();
 
     useEffect(() => {
+        if(userInfo){
+            props.history.push("/");
+        }
+
         return () => {
 
         };
-    },[]);
+    },[userInfo]);
+ 
 
 
     const submitHandler = (e) => {
         e.preventDefault();
+        dispatch(signin(email, password));
     }
 
     return (
@@ -26,15 +34,22 @@ const SignInScreen = (props) =>  {
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <label for="email">
+                        <h3>Sign-In</h3>
+                    </li>
+                    <li>
+                        {loading && <div>Loading...</div>}
+                        {error && <div>{error}</div>}
+                    </li>
+                    <li>
+                        <label htmlFor="email">
                             Email
                         </label>
                         <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
                         </input>
                     </li>
                     <li>
-                        <label for="password">
-                            password
+                        <label htmlFor="password">
+                            Password
                         </label>
                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}>
                         </input>
@@ -46,7 +61,7 @@ const SignInScreen = (props) =>  {
                         New to Amazona?
                     </li>
                     <li>
-                        <Link to="/register" className="button full-width">Create your amazona account</Link>
+                        <Link to="/register" className="button secondary text-center">Create your amazona account</Link>
                     </li>
                 </ul>
 
